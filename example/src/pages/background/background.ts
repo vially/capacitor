@@ -45,4 +45,10 @@ export class BackgroundPage {
     console.log('Starting background task:', this.taskId);
   }
 
+  registerScript() {
+    BackgroundTask.registerScript({
+      file: 'background-task.js'
+    });
+  }
+
 }

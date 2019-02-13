@@ -1,4 +1,5 @@
 import Foundation
+import JavaScriptCore
 
 @objc(CAPBackgroundTaskPlugin)
 public class CAPBackgroundTaskPlugin : CAPPlugin {
@@ -41,6 +42,37 @@ public class CAPBackgroundTaskPlugin : CAPPlugin {
   
   @objc func fetch(_ call: CAPPluginCall) {
    
+  }
+  
+  @objc func registerScript(_ call: CAPPluginCall) {
+    guard let scriptFile = call.getString("file") else {
+      call.error("Must provide script")
+      return
+    }
+    print("Adding background script: " + scriptFile)
+    
+    let parts = scriptFile.split(separator: ".")
+    let ext = String(parts.last!)
+    let resourceName = parts[0...parts.count-2].joined() as String
+    
+    guard let scriptPath = Bundle.main.path(forResource: "public/" + resourceName, ofType: ext) else {
+      print("Unable to read resource files.")
+      call.error("Unable to load resource files")
+      return
+    }
+    
+    guard let scriptContents = try? String(contentsOfFile: scriptPath, encoding: .utf8) else {
+      print("Unable to load script")
+      call.error("Unable to load script")
+      return
+    }
+    
+    print("Loaded script contents:")
+    print(scriptContents)
+    
+    let context = JSContext()
+    let value = context?.evaluateScript(scriptContents)
+    print("Evaluated script: ", value)
   }
   
   @objc func onAppTerminate() {

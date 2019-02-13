@@ -195,6 +195,15 @@ export interface BackgroundTaskPlugin extends Plugin {
    * backgrounding the app.
    */
   finish(options: {taskId: CallbackID}): void;
+
+  /**
+   * Register a script to be executed on the native JavaScript engine available
+   * on the platform. This script will *not* have access to Browser or DOM APIs,
+   * but has access to any Capacitor plugin's registered JS API
+   */
+  registerScript(options: {
+    file: string
+  }): Promise<void>;
 }
 
 //
