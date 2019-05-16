@@ -54,4 +54,33 @@ page.
 
 ## Android Embedding
 
-Coming soon.
+Capacitor can be installed into any existing native Android app.
+
+### Installation
+
+The installation process for Capacitor involves installing a node module to grab the current version of `native-bridge.js`, which Capacitor users to communicate with the native layer, along with installing the native Android `capacitor-android` library in your app.
+
+```
+npm install @capacitor/core
+cp node_modules/\@capacitor/core/native-bridge.js MyApp/public/
+```
+
+In your root `build.gradle` file, under `allprojects`, add the following maven repository:
+
+```gradle
+allprojects {
+  maven {
+      url  "https://dl.bintray.com/ionic-team/capacitor" 
+  }
+}
+```
+
+Next, in the `build.gradle` file for your app, add the `capacitor-android` dependency:
+
+```gradle
+dependencies {
+  implementation 'ionic-team:capacitor-android:VERSION'
+}
+```
+
+Where `VERSION` is the version you wish to install.
