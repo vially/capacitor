@@ -33,11 +33,9 @@ public class BridgeFragment extends Fragment {
    * Use this factory method to create a new instance of
    * this fragment using the provided parameters.
    *
-   * @param param1 Parameter 1.
-   * @param param2 Parameter 2.
+   * @param startDir the directory to serve content from
    * @return A new instance of fragment BridgeFragment.
    */
-  // TODO: Rename and change types and number of parameters
   public static BridgeFragment newInstance(String startDir) {
     BridgeFragment fragment = new BridgeFragment();
     Bundle args = new Bundle();
@@ -56,13 +54,6 @@ public class BridgeFragment extends Fragment {
                            Bundle savedInstanceState) {
     // Inflate the layout for this fragment
     return inflater.inflate(R.layout.fragment_bridge, container, false);
-  }
-
-  // TODO: Rename method, update argument and hook method into UI event
-  public void onButtonPressed(Uri uri) {
-    if (mListener != null) {
-      mListener.onFragmentInteraction(uri);
-    }
   }
 
   @Override
@@ -93,7 +84,6 @@ public class BridgeFragment extends Fragment {
    * >Communicating with Other Fragments</a> for more information.
    */
   public interface OnFragmentInteractionListener {
-    // TODO: Update argument type and name
     void onFragmentInteraction(Uri uri);
   }
 }
