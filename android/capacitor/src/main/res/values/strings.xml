@@ -1,7 +1,10 @@
 <resources>
-    <string name="app_name">CapacitorAndroid</string>
-    <string name="ok">OK</string>
-    <string name="picture">Picture</string>
-    <string name="request_permission">Allow this app to take pictures</string>
-    <string name="camera_error">Unable to use camera</string>
+  <string name="app_name">CapacitorAndroid</string>
+  <string name="ok">OK</string>
+  <string name="picture">Picture</string>
+  <string name="request_permission">Allow this app to take pictures</string>
+  <string name="camera_error">Unable to use camera</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
