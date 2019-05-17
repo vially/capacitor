@@ -3,6 +3,7 @@ package com.getcapacitor;
 import android.animation.Animator;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
@@ -40,7 +41,14 @@ public class Splash {
     String splashResourceName = Config.getString(CONFIG_KEY_PREFIX + "androidSplashResourceName", "splash");
 
     int splashId = c.getResources().getIdentifier(splashResourceName, "drawable", c.getPackageName());
-    Drawable splash = c.getResources().getDrawable(splashId, c.getTheme());
+
+    Drawable splash;
+    try {
+      splash = c.getResources().getDrawable(splashId, c.getTheme());
+    } catch (Resources.NotFoundException ex) {
+      Log.w(LogUtils.getCoreTag(), "No splash screen found, not displaying");
+      return;
+    }
 
     if (splash instanceof Animatable) {
       ((Animatable) splash).start();
