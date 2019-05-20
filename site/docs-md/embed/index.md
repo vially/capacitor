@@ -54,7 +54,9 @@ page.
 
 ## Android Embedding
 
-Capacitor can be installed into any existing native Android app.
+Capacitor can be installed into any existing native Android app. There are two ways to use Capacitor in this way: as an Activity or as a Fragment.
+
+The Activity approach is good for full screen experiences, while the Fragment is perfect for use cases like bottom navigation and having a separate Capacitor instance for each tab.
 
 ### Installation
 
@@ -84,3 +86,16 @@ dependencies {
 ```
 
 Where `VERSION` is the version you wish to install.
+
+
+### Usage
+
+To embed Capacitor in your existing Android app, you can either start a new fullscreen Capacitor activity or embed Capacitor as a Fragment.
+
+#### Activity usage
+
+To start a fullscreen Capacitor activity at any moment in the app (such as a button click), call `startActivity()` with com.getcapacitor.BridgeActivity`.
+
+We recommend this use case for apps that are okay start a new fullscreen activity. However, most apps will likely prefer using the `Fragment` approach (see below) which embeds the Capacitor instance in the existing Activity.
+
+#### Fragment usage
