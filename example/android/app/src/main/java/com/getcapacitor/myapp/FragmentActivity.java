@@ -18,6 +18,8 @@ public class FragmentActivity extends AppCompatActivity implements BridgeFragmen
     setContentView(R.layout.activity_fragment);
   }
 
+
+
   @Override
   public void onFragmentInteraction(Uri uri) {
 
