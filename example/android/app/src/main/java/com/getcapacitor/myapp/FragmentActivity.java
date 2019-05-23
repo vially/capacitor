@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.getcapacitor.BridgeFragment;
 
@@ -65,8 +66,12 @@ public class FragmentActivity extends AppCompatActivity implements BridgeFragmen
     adapter.addFragment(page1);
     BridgeFragment page2 = new BridgeFragment();
     adapter.addFragment(page2);
-    BridgeFragment page3 = new BridgeFragment();
-    adapter.addFragment(page3);
+    //BridgeFragment page3 = new BridgeFragment();
+    //adapter.addFragment(page3);
+
+    MyVideoFragment tab3 = new MyVideoFragment();
+    adapter.addFragment(tab3);
+
     mViewPager.setAdapter(adapter);
   }
 
