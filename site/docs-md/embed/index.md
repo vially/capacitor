@@ -11,6 +11,8 @@ When Capacitor is embedded in an existing native app, it becomes a `ViewControll
 That means you can add new screens or views in your app that display this managed Capacitor view, which will then load
 web content in that screen with full access to your Capacitor plugins.
 
+Additionally, multiple instances of Capacitor can run in parallel, each displaying different content.
+
 ## iOS Embedding
 
 ### Installation
