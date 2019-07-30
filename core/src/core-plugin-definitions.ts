@@ -1156,8 +1156,20 @@ export type NetworkStatusChangeCallback = (status: NetworkStatus) => void;
 
 //
 
+export enum PermissionType {
+  Camera = 'CAMERA',
+  Photos = 'PHOTOS',
+  Geolocation = 'GEOLOCATION',
+  PushNotifications = 'PUSH_NOTIFICATIONS',
+  Clipboard = 'CLIPBOARD'
+}
+
+export interface PermissionsOptions {
+  type: PermissionType;
+}
+
 export interface PermissionsPlugin extends Plugin {
-  hasPermission(extra: any): Promise<{ value: boolean }>;
+  hasPermission(options: PermissionsOptions): Promise<{ value: boolean }>;
 }
 
 //
