@@ -313,9 +313,9 @@ export interface CameraOptions {
 
   /**
    * Web only: whether to use the PWA Element experience or file input. The default
-   * is to use PWA Elements where available and otherwise falling back to file input
+   * is to use file input experience. Learn more about PWA Elements: https://capacitor.ionicframework.com/docs/pwa-elements/
    */
-  webUseInput?: boolean;
+  webUsePWAElements?: boolean;
 }
 
 export enum CameraSource {
@@ -353,7 +353,7 @@ export interface CameraPhoto {
    */
   exif?: any;
   /**
-   * The format of the image. Currently, only "jpeg" is supported.
+   * The format of the image, ex: jpeg, png, gif.
    */
   format: string;
 }
