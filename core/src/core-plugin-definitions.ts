@@ -310,6 +310,12 @@ export interface CameraOptions {
    * iOS only: The presentation style of the Camera. Defaults to fullscreen.
    */
   presentationStyle?: 'fullscreen' | 'popover';
+
+  /**
+   * Web only: whether to use the PWA Element experience or file input. The default
+   * is to use PWA Elements where available and otherwise falling back to file input
+   */
+  webUseInput?: boolean;
 }
 
 export enum CameraSource {
