@@ -67,6 +67,19 @@ export class CameraPluginWeb extends WebPlugin implements CameraPlugin {
 
       input.addEventListener('change', (e: any) => {
         console.log('Got image', e);
+        const file = input.files[0];
+
+        const reader = new FileReader();
+        reader.addEventListener('load', () => {
+          console.log('Loaded reader', reader.result);
+        });
+
+        if (options.resultType === CameraResultType.DataUrl || options.resultType === CameraResultType.Base64) {
+          reader.readAsDataURL(file);
+        } else {
+          reject('Camera result type not supported on this platform. Use DataUrl or Base64');
+        }
+
         resolve();
         reject;
       });
