@@ -62,8 +62,7 @@ export class CameraPluginWeb extends WebPlugin implements CameraPlugin {
         (input as any).capture = 'environment';
       }
 
-      input.addEventListener('change', (e: any) => {
-        console.log('Got image', e);
+      input.addEventListener('change', (_e: any) => {
         const file = input.files[0];
         let format = 'jpeg';
         if (file.type === 'image/png') {
@@ -75,9 +74,7 @@ export class CameraPluginWeb extends WebPlugin implements CameraPlugin {
 
         const reader = new FileReader();
         reader.addEventListener('load', () => {
-          console.log('Loaded reader', reader.result);
           if (options.resultType === CameraResultType.DataUrl) {
-            console.log('Data url result');
             resolve({
               dataUrl: reader.result,
               format

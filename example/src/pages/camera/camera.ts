@@ -45,6 +45,16 @@ export class CameraPage {
     this.image = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
   }
 
+  async getBase64() {
+    const image = await Plugins.Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.Base64
+    })
+    console.log('Got image back', image.base64String, image.format);
+    this.image = this.sanitizer.bypassSecurityTrustResourceUrl(image && (`data:${image.format};base64,${image.base64String}`));
+  }
+
   async getPhotoPWAElements() {
     const image = await Plugins.Camera.getPhoto({
       quality: 90,
