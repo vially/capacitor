@@ -1,5 +1,5 @@
 {
-  "name": "@capacitor/core",
+  "name": "@vially/capacitor-core",
   "version": "1.1.1",
   "description": "Capacitor: cross-platform mobile apps with the web",
   "homepage": "https://capacitor.ionicframework.com/",
@@ -39,12 +39,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ionic-team/capacitor.git"
+    "url": "git+https://github.com/vially/capacitor.git"
   },
   "bugs": {
     "url": "https://github.com/ionic-team/capacitor/issues"
   },
   "publishConfig": {
+    "registry": "https://npm.pkg.github.com/",
     "access": "public"
   },
   "jest": {
