@@ -2,11 +2,7 @@
   "lerna": "2.4.0",
   "gitVersionPrefix": "",
   "packages": [
-    "./android/",
-    "./capacitor-ios/",
-    "./cli/",
-    "./core/",
-    "./electron/"
+    "./core/"
   ],
   "version": "1.1.1"
 }
